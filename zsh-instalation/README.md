@@ -29,7 +29,7 @@ This script automates the installation and setup of **Zsh**, **Oh My Zsh**, and 
 ### 1. Download the script
 
 ```bash
-curl -O https://your-repo-link/zsh-instalation.sh
+curl -O https://xxxxxxx/zsh-instalation.sh
 ```
 
 ### 2. Make it executable
