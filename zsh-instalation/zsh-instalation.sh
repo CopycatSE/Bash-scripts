@@ -16,7 +16,7 @@ elif command -v apt-get &>/dev/null; then
     echo "Detected Debian-based Linux..."
     sudo apt-get update -y
     sudo apt-get install -y zsh curl git
-elif command -v dnf &>/dev/null; then
+elif command -v dnf &>/dev/null; 
     echo "Detected Fedora-based Linux..."
     sudo dnf install -y zsh curl git
 else
@@ -82,7 +82,7 @@ else
     echo 'plugins=(git zsh-syntax-highlighting zsh-autosuggestions web-search)' >> "$ZSHRC"
 fi
 
-# Change the default shell to zsh (non-interactively if possible).
+# Change the default shell to zsh.
 echo "Changing default shell to zsh..."
 chsh -s "$(command -v zsh)" "$(whoami)" || \
     echo "Uh oh, automatic shell change failed. Please run 'chsh -s $(command -v zsh)' manually."
