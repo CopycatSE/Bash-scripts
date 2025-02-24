@@ -4,7 +4,9 @@
 
 ## Overview
 
-This script automates the installation and setup of **Zsh**, **Oh My Zsh**, and the **Powerlevel10k theme** along with essential plugins like **zsh-syntax-highlighting**, **zsh-autosuggestions**, and **web-search**. It ensures a smooth, non-interactive installation across macOS, Debian-based, and Fedora-based Linux systems.
+This script automates the installation and setup of **Zsh**, **Oh My Zsh**, and the **Powerlevel10k theme** along with essential plugins like **zsh-syntax-highlighting**, **zsh-autosuggestions**, and **web-search**. Additionally, it installs the **Terminess Nerd Font** for improved terminal rendering.
+
+Script ensures a smooth, non-interactive installation across macOS, Debian-based, and Fedora-based Linux systems.
 
 ## Features
 

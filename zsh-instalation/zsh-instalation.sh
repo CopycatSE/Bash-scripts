@@ -64,6 +64,33 @@ fi
 # Note: The 'web-search' plugin is part of the default Oh My Zsh package,
 # so no extra installation is needed.
 
+# Install Nerd Fonts (Terminess Nerd Font)
+if [ "$(uname)" = "Darwin" ]; then
+    echo "Installing Terminess Nerd Font on macOS..."
+    # Check if the font is already installed via Homebrew Cask
+    if ! brew list --cask font-terminess-nerd-font &>/dev/null; then
+        brew tap homebrew/cask-fonts
+        brew install --cask font-terminess-nerd-font
+    else
+        echo "Terminess Nerd Font is already installed."
+    fi
+elif command -v apt-get &>/dev/null || command -v dnf &>/dev/null; then
+    echo "Installing Terminess Nerd Font on Linux..."
+    FONT_DIR="$HOME/.local/share/fonts"
+    mkdir -p "$FONT_DIR"
+    cd "$FONT_DIR"
+    if [ ! -d "Terminess" ]; then
+        curl -fLo Terminess.zip --create-dirs "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/Terminus.zip"
+        unzip Terminess.zip -d Terminess
+        rm Terminess.zip
+        fc-cache -fv "$FONT_DIR"
+    else
+        echo "Terminess Nerd Font is already installed."
+    fi
+else
+    echo "Unsupported OS for automatic Nerd Fonts installation."
+fi
+
 # Update ~/.zshrc to set the Powerlevel10k theme and enable the plugins.
 ZSHRC="$HOME/.zshrc"
 if [ -f "$ZSHRC" ]; then
