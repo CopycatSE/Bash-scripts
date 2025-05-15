@@ -12,8 +12,28 @@ PROJECT_PATH="$SCRIPT_DIR/$PROJECT_NAME"
 # Create the project's root directory
 mkdir -p $PROJECT_PATH
 
-# Change directory to the project directory
+# Initialize git repository and add .gitignore
 cd $PROJECT_PATH
+git init
+
+# Add .gitignore for Python, Node, and OS junk files
+echo 'venv/
+__pycache__/
+database.db
+*.pyc
+*.pyo
+.DS_Store
+node_modules/
+dist/
+build/
+.env
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+' > .gitignore
+
+ # Change directory to the project directory
+# (already in $PROJECT_PATH after git init above)
 
 # Create a Python virtual environment
 python3 -m venv venv
@@ -28,11 +48,14 @@ source venv/bin/activate
 pip install --upgrade pip
 pip install Flask SQLAlchemy pywebview
 
-# Create backend directories
+ # Create backend directories
 mkdir -p backend/static
 
-# Create backend files
+# Add __init__.py to all backend subfolders
 touch backend/__init__.py
+touch backend/static/__init__.py
+
+# Create backend files
 touch backend/app.py
 touch backend/database.py
 touch backend/models.py
